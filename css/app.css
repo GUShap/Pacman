@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+/* board */
+
+.board-container {
+  z-index: 3;
+  margin-left: 30%;
+  height: 600px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.5em;
+  border: 4px solid rgb(29, 117, 109);
+}
+
+.wall {
+  display: flex;
+  border: 2px solid rgb(29, 117, 109);
+  background-color: rgb(29, 117, 109);
+  width: 40px;
+  height: 40px;
+}
+
+/**/
+
+/* modal */
+
+.modal {
+  display: none;
+  /* position: fixed; */
+  margin: auto;
+  }
+
+
+.modal.game-over {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin-top: 20%;
+  padding: 25px;
+  font-family: 'Amatica SC';
+  font-size: 60px;
+  width: 300px;
+  height: 300px;
+  border: 3px solid white;
+  background-color: rgba(167, 109, 109, 0.63)
+}
+
+.modal.victory {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin-top: 20%;
+  padding: 25px;
+  font-family: 'Reprise Stamp Std';
+  font-size: 35px;
+  width: 400px;
+  height: 300px;
+  border: 3px solid white;
+  color: rgb(235, 235, 235);
+  background-color: rgba(24, 200, 191, 0.863)
+}
+
+.resetBtn {
+  display: inline-block;
+  position: relative;
+  border-radius: 10px;
+  padding: auto;
+  margin-top: 30%;
+  font-size: 18px;
+  font-family: 'Montserrat Subrayada';
+  background-color: burlywood;
+}
+
+.resetBtn:hover {
+  cursor: pointer;
+}
+
+/*  */
+
+/* pacman */
+
+.pacman::before, .pacman::after {
+  position: relative;
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border: solid 15px yellow;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.pacman::before {
+  position: absolute;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  animation: mouthTop 0.5s ease infinite;
+}
+
+.pacman::after {
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: mouthBottom 0.5s ease infinite;
+}
+
+/*  */
+
+/* ghost */
+
+.ghost {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  opacity: 0.8;
+}
+
+.ghost::before, .ghost::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: -14px;
+}
+
+.ghost::after {
+  margin-left: 1px;
+}
+
+/*  */
+
+/* food */
+.food {
+  position: relative;
+  margin-left: 15px;
+  background-color: gold;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+/*  */
+
+/* super Food */
+.super-food{
+  position: relative;
+  margin-left: 5px;
+  background-color: rgba(255, 151, 14, 0.582);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  transform: translateX(-50%);
+  font-family: 'Amatica SC';
+  font-size: 25px;
+}
+
+@keyframes mouthTop {
+  50% {
+    transform: rotate(43deg);
+  }
+}
+
+@keyframes mouthBottom {
+  50% {
+    transform: rotate(-43deg);
+  }
+}
